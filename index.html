@@ -7,6 +7,14 @@
     <title>Hemant Meena - Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <!-- Required Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+    <!-- Shery.js -->
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
+    <script src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
   </head>
   <body>
     <nav id="desktop-nav">
@@ -38,7 +46,7 @@
     </nav>
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./assets/profile-pic1.png" alt="Hemant Meena profile picture" />
+        <img src="./assets/monkey1.jpeg" alt="Hemant Meena profile picture" />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
@@ -111,12 +119,6 @@
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
     </section>
     <section id="experience">
       <p class="section__text__p1">Explore My</p>
@@ -267,12 +269,6 @@
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
     </section>
     <section id="projects">
       <p class="section__text__p1">Browse My Recent</p>
@@ -389,12 +385,6 @@
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
     </section>
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
@@ -440,5 +430,61 @@
       <p>Copyright &#169; 2024 Hemant Meena. All rights reserved.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+      // Initialize Shery.js effects
+      Shery.mouseFollower({
+        skew: true,
+        ease: "cubic-bezier(0.23, 1, 0.32, 1)",
+        duration: 0.5,
+      });
+
+      // Magnetic effect for buttons
+      Shery.makeMagnet(".btn", {
+        ease: "cubic-bezier(0.23, 1, 0.32, 1)",
+        duration: 1,
+        distance: 50,
+      });
+
+      // Magnetic effect for social icons
+      Shery.makeMagnet(".icon", {
+        ease: "cubic-bezier(0.23, 1, 0.32, 1)",
+        duration: 1,
+        distance: 30,
+      });
+
+      // Magnetic effect for navigation links
+      Shery.makeMagnet(".nav-links a", {
+        ease: "cubic-bezier(0.23, 1, 0.32, 1)",
+        duration: 1,
+        distance: 20,
+      });
+
+      // Text animation for titles
+      Shery.textAnimate(".title", {
+        style: 1,
+        y: 10,
+        delay: 0.1,
+        duration: 2,
+        ease: "cubic-bezier(0.23, 1, 0.32, 1)",
+        multiplier: 0.1,
+      });
+
+      // Hamburger menu animation
+      const hamburgerIcon = document.querySelector('.hamburger-icon');
+      const navLinks = document.querySelector('.nav-links');
+      
+      hamburgerIcon.addEventListener('click', () => {
+        hamburgerIcon.classList.toggle('open');
+        navLinks.classList.toggle('show');
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburgerIcon.classList.remove('open');
+          navLinks.classList.remove('show');
+        });
+      });
+    </script>
   </body>
 </html>

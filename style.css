@@ -299,8 +299,14 @@ section {
 
 .arrow {
   position: absolute;
-  right: -5rem;
+  right: 2rem;
   bottom: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.arrow:hover {
+  transform: translateY(5px);
 }
 
 .details-container {
@@ -439,4 +445,67 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+/* Cursor styles */
+.cursor {
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+
+.cursor-follower {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 123, 255, 0.1);
+  border: 1px solid #007bff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.1s;
+}
+
+/* Magnetic button styles */
+.btn {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Social icons magnetic effect */
+.icon {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation links magnetic effect */
+.nav-links a {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  transform: scale(1.05);
+}
+
+/* Text animation styles */
+.title {
+  position: relative;
+  display: inline-block;
 }
